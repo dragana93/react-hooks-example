@@ -40,8 +40,8 @@ const useHttp = () => {
   const clear = useCallback(() => dispatchHttp({ type: "CLEAR" }), []);
 
   const sendRequest = useCallback(
-    (url, method, body, reqExtra, reqIdentifer) => {
-      dispatchHttp({ type: "SEND", identifier: reqIdentifer });
+    (url, method, body, reqExtra, reqIdentifier) => {
+      dispatchHttp({ type: "SEND", identifier: reqIdentifier });
       fetch(url, {
         method: method,
         body: body,
@@ -75,7 +75,7 @@ const useHttp = () => {
     error: httpState.error,
     sendRequest: sendRequest,
     reqExtra: httpState.extra,
-    reqIdentifer: httpState.identifier,
+    reqIdentifier: httpState.identifier,
     clear: clear,
   };
 };

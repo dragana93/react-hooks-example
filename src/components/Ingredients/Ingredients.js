@@ -27,20 +27,20 @@ const Ingredients = () => {
     data,
     sendRequest,
     reqExtra,
-    reqIdentifer,
+    reqIdentifier,
     clear,
   } = useHttp();
 
   useEffect(() => {
-    if (!isLoading && !error && reqIdentifer === "REMOVE_INGREDIENT") {
+    if (!isLoading && !error && reqIdentifier === "REMOVE_INGREDIENT") {
       dispatch({ type: "DELETE", id: reqExtra });
-    } else if (!isLoading && !error && reqIdentifer === "ADD_INGREDIENT") {
+    } else if (!isLoading && !error && reqIdentifier === "ADD_INGREDIENT") {
       dispatch({
         type: "ADD",
         ingredient: { id: data.name, ...reqExtra },
       });
     }
-  }, [data, reqExtra, reqIdentifer, isLoading, error]);
+  }, [data, reqExtra, reqIdentifier, isLoading, error]);
 
   const filteredIngredientsHandler = useCallback((filteredIngredients) => {
     dispatch({ type: "SET", ingredients: filteredIngredients });
